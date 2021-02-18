@@ -29,7 +29,7 @@ d3.json(url, function(output) {
     for (var axis = 0; axis < output.features.length; axis++) {
         //set colors for circle plots
         var color = "";
-        if (base > 90) {
+        if (depth > 90) {
             color = "red"
         }
         else if (depth > 75) {
@@ -49,7 +49,7 @@ d3.json(url, function(output) {
         }
         //Get variables from json
         var coordinates = output.features[axis].geometry.coordinates;
-        var base = output.features[axis].geometry.coordinates[2];
+        var depth = output.features[axis].geometry.coordinates[2];
         var mag = output.featuress[axis].properties.mag;
         var location = output.features[axis].properties.place;
 
@@ -61,7 +61,20 @@ d3.json(url, function(output) {
                 fillColor: "light-blue",
                 fillOpacity: .5,
                 radius: 500
-            }).bindPopup(`<h5>Magnitude: ${mag}` + `<h5>Location: ${location}`+ `<h5>Base: ${base}`).addTo(myMap);
+            }).bindPopup(`<h5>Magnitude: ${mag}` + `<h5>Location: ${location}`+ `<h5>depth: ${depth}`).addTo(myMap);
         }
+    }
+    //Create Legend
+    //helpful link https://leafletjs.com/examples/choropleth/
+    var info = L.control({ position: 'bottomleft'})
+    info.onAdd = function(label) {
+        //create utility for DOM tree
+        var div = L.DomUtil.create('div', 'info');
+        //give legend params
+        var params = ['Less than 10', '10 to 25', '25 to 50', '50 to 75', '75 to 90', 'Greater than 90'];
+        //give legend a title
+        var title = ['Kilometers of Depth per Eearthquake'];
+        //give colors to match the colors of the circle plots, 'copy pasta from above
+        var col = ["white","purple","blue","yellow","orange","red"];
     }
 })
