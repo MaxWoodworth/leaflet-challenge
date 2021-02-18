@@ -1,5 +1,5 @@
 // Declare map and set initial paramss
-var myMap = L.map("map",{
+var myMap = L.map("map", {
     center: [0, 0],
     zoom: 3
 });
@@ -15,4 +15,5 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 //Give reference to chosen json URL (M1.0+ Earthquakes)
-var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson"
+//var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson"
+
