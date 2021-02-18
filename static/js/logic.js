@@ -1,7 +1,7 @@
 // Declare map and set initial paramss
 var myMap = L.map("map", {
-    center: [0, 0],
-    zoom: 3
+    center: [20, 0],
+    zoom: 2.5
 });
 
 //add titlelayer defaults
@@ -60,8 +60,10 @@ d3.json(url, function(output) {
             L.circle([coordinates[1], coordinates [0]], {
                 color: "light-blue",
                 fillColor: color,
-                fillOpacity: .5,
-                radius: 50000
+                fillOpacity: .75,
+                //I tried to use exponents but it did not work. everything became very disproportionate so I multiplied the magnitude by random numbers until I had something that was big enough but not too big.
+                //radius: mag * 5 ** mag
+                radius: mag * 55000
             }).bindPopup(`<h5>MAGNITUDE: ${mag}` + `<h5>LOCATION: ${location}`+ `<h5>DEPTH: ${depth}`).addTo(myMap);
         }
     }
