@@ -1,6 +1,7 @@
 # leaflet-challenge
 
 ## Create a map using data gethered from earthquake.usgs.gov
+![static](https://user-images.githubusercontent.com/67917648/108422293-fb31b180-71fb-11eb-9cb2-fd473db444a7.png)
 
 # Trouble early
 I was struggling early on and was recieving a container error. After much google-foo I found the culpret and just simply had to change the id for the map on the html. Not totally certain on why this fixed the issue but I know where to look first next time.
