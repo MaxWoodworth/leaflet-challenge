@@ -52,6 +52,16 @@ d3.json(url, function(output) {
         var base = output.features[axis].geometry.coordinates[2];
         var mag = output.featuress[axis].properties.mag;
         var location = output.features[axis].properties.place;
-        
+
+        //link to documentation where I refreshed on popups
+        //https://leafletjs.com/examples/quick-start/
+        if (coordinates) {
+            L.circle([coordinates[1], coordinates [0]], {
+                color: "light-blue",
+                fillColor: "light-blue",
+                fillOpacity: .5,
+                radius: 500
+            }).bindPopup(`<h5>Magnitude: ${mag}` + `<h5>Location: ${location}`+ `<h5>Base: ${base}`).addTo(myMap);
+        }
     }
 })
