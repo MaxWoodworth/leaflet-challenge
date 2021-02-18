@@ -50,7 +50,7 @@ d3.json(url, function(output) {
         //Get variables from json
         var coordinates = output.features[axis].geometry.coordinates;
         var depth = output.features[axis].geometry.coordinates[2];
-        var mag = output.featuress[axis].properties.mag;
+        var mag = output.features[axis].properties.mag;
         var location = output.features[axis].properties.place;
 
         //link to documentation where I refreshed on popups
@@ -76,5 +76,15 @@ d3.json(url, function(output) {
         var title = ['Kilometers of Depth per Eearthquake'];
         //give colors to match the colors of the circle plots, 'copy pasta from above
         var col = ["white","purple","blue","yellow","orange","red"];
-    }
+        //https://www.w3schools.com/jsref/prop_html_innerhtml.asp
+        //https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+        //helpful links^^
+        for (var x = 0; x < params.length; x++) {
+            div.innerHTML =
+            title.push('<li style="background-color:' + col[x] + '   "></li>   ' + params[x]);      
+        }
+        div.innerHTML = '<ul>' + title.join('<br>') + '</ul>'
+        return div;
+    };
+    info.addTo(myMap);
 })
