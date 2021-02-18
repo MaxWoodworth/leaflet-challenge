@@ -47,6 +47,11 @@ d3.json(url, function(output) {
         else {
             color = "white";
         }
-    
+        //Get variables from json
+        var coordinates = output.features[axis].geometry.coordinates;
+        var base = output.features[axis].geometry.coordinates[2];
+        var mag = output.featuress[axis].properties.mag;
+        var location = output.features[axis].properties.place;
+        
     }
 })
