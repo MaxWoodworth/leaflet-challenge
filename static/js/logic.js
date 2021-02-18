@@ -25,6 +25,7 @@ var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geo
 
 //set up d3
 d3.json(url, function(output) {
+    console.log(output);
     //create forloop
     for (var axis = 0; axis < output.features.length; axis++) {
         //set colors for circle plots
@@ -58,10 +59,10 @@ d3.json(url, function(output) {
         if (coordinates) {
             L.circle([coordinates[1], coordinates [0]], {
                 color: "light-blue",
-                fillColor: "light-blue",
+                fillColor: color,
                 fillOpacity: .5,
-                radius: 500
-            }).bindPopup(`<h5>Magnitude: ${mag}` + `<h5>Location: ${location}`+ `<h5>depth: ${depth}`).addTo(myMap);
+                radius: 50000
+            }).bindPopup(`<h5>MAGNITUDE: ${mag}` + `<h5>LOCATION: ${location}`+ `<h5>DEPTH: ${depth}`).addTo(myMap);
         }
     }
     //Create Legend
